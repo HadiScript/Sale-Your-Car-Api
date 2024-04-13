@@ -12,7 +12,7 @@ import { plainToClass } from "class-transformer";
 interface classConstructor {
   new(...args: any[]): {}
 }
-
+ 
 export function serialize(dto: classConstructor) {
   return UseInterceptors(new SerializeInterceptor(dto));
 }

@@ -13,3 +13,19 @@ export class authGuard implements CanActivate {
 
   }
 }
+
+
+
+export class adminGuard implements CanActivate {
+  canActivate(context: ExecutionContext) {
+
+    const request = context.switchToHttp().getRequest();
+
+    if (!request.currentUser) {
+      return false;
+    }
+
+    return request.currentUser.admin;
+
+  }
+}
